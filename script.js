@@ -35,7 +35,7 @@ const fetchData = () => {
         .then(response => response.json())
         .then(info => {
             console.log(info.data)
-            renderCards(info.data.monsters)
+            renderCards(info.data.treasure)
             return info
         })
 }
@@ -53,7 +53,7 @@ const addEventListenerToNavLinks = () => {
                 .then(response => response.json())
                 .then(info => {
 
-                    renderCards(info.data.monsters)
+                    renderCards(info.data.treasure)
                 })
 
             // 2. Images should remain - only show images that match the clicked link
