@@ -51,13 +51,9 @@ const renderLinksCards = (dataArray) => {
 
         const img = document.createElement("img");
         const name = document.createElement("p")
-        // const description = document.createElement("p")
-        // const equipment = document.createElement('p')
 
 
         name.textContent = cardInfo.name
-        // description.textContent = cardInfo.description
-        // equipment.textContent = cardInfo.equipment
 
         imgContainer.append(img, name)
 

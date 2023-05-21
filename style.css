@@ -3,6 +3,8 @@ body {
 }
 
 .card-container {
-  background-color: beige;
+  grid-column: auto;
+  background-color: rgb(21, 13, 179);
 }
 
+.card-container
