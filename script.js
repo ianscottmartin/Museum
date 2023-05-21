@@ -53,14 +53,21 @@ const addEventListenerToNavLinks = () => {
             // 1. Fetch data from json
             console.log(e)
             console.log(e.target)
-            debugger
+            // debugger
             // a. Return only images that match the clicked link
             fetch("https://botw-compendium.herokuapp.com/api/v2")
                 .then(response => response.json())
                 .then(info => {
 
                     renderCards(info.data.monsters)
+                    renderCards(info.data.creatures)
+                    renderCards(info.data.equipment)
+                    renderCards(info.data.materials)
+                    renderCards(info.data.treasure)
+                    // console.log(renderCards)
+
                 })
+
 
             // 2. Images should remain - only show images that match the clicked link
 
