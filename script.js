@@ -39,13 +39,13 @@ const fetchDataCat = () => {
         .then(response => response.json())
         .then(info => {
             // console.log(info.data)
-            renderLinksCards(info.data.monsters)
+            renderLinksCards(info.data.treasure)
             return info
         })
 }
 
 const renderLinksCards = (dataArray) => {
-    const cardContainer = document.getElementById("card-container");
+    const cardlinkContainer = document.getElementById("card-linkscontainer");
     dataArray.forEach((cardInfo) => {
         const imgContainer = document.createElement("div");
 
@@ -71,7 +71,7 @@ const renderLinksCards = (dataArray) => {
 
 
 
-        cardContainer.appendChild(imgContainer);
+        cardlinkContainer.appendChild(imgContainer);
     });
 };
 
@@ -81,7 +81,7 @@ const fetchData = () => {
         .then(response => response.json())
         .then(info => {
             // console.log(info.data)
-            renderCards(info.data.treasure)
+            renderCards(info.data.monsters)
             return info
         })
 }

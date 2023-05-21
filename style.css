@@ -2,9 +2,18 @@ body {
   background-color: aquamarine;
 }
 
-.card-container {
-  grid-column: auto;
-  background-color: rgb(21, 13, 179);
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
 }
 
-.card-container
+#card-container {
+  grid-column: auto;
+  background-color: rgb(35, 25, 230);
+}
+
+#card-linkscontainer {
+  background-color: crimson;
+}
