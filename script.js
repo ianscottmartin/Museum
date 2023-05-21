@@ -55,15 +55,15 @@ const addEventListenerToNavLinks = () => {
             console.log(e.target)
             // debugger
             // a. Return only images that match the clicked link
-            fetch("https://botw-compendium.herokuapp.com/api/v2")
+            fetch("https://botw-compendium.herokuapp.com/api/v2/category/<category>")
                 .then(response => response.json())
                 .then(info => {
 
-                    renderCards(info.data.monsters)
-                    renderCards(info.data.creatures)
-                    renderCards(info.data.equipment)
-                    renderCards(info.data.materials)
-                    renderCards(info.data.treasure)
+                    // renderCards(info.data.monsters)
+                    // renderCards(info.data.creatures)
+                    // renderCards(info.data.equipment)
+                    // renderCards(info.data.materials)
+                    // renderCards(info.data.treasure)
                     // console.log(renderCards)
 
                 })
@@ -80,3 +80,22 @@ const addEventListenerToNavLinks = () => {
 
 addEventListenerToNavLinks()
 fetchData()
+
+// const renderCards = (dataArray) => {
+//     const cardContainer = document.getElementById("card-container");
+//     dataArray.forEach((cardInfo) => {
+//         const imgContainer = document.createElement("div");
+
+//         const img = document.createElement("img");
+//         const name = document.createElement("p")
+//         // const description = document.createElement("p")
+//         // const equipment = document.createElement('p')
+
+
+//         name.textContent = cardInfo.name
+//         // description.textContent = cardInfo.description
+//         // equipment.textContent = cardInfo.equipment
+
+//         imgContainer.append(img, name)
+
+//         img.src = cardInfo.image;

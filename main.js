@@ -1,65 +1,92 @@
-let allCards = []; // Array for storing all initially fetched data. See the init function to see how this is populated
+// let hyruleData;
 
-const renderCards = (dataArray) => {
-    const cardsContainer = document.getElementById("cards-container");
-    cardsContainer.textContent = "";
+// document.addEventListener("DOMContentLoaded", () => {
+//     fetchData();
+// });
 
-    dataArray.forEach((cardInfo) => {
-        const cardWrapper = document.createElement("div");
-        cardWrapper.className = "card-wrapper";
+// const input = document.querySelector("#search-food");
+// input.addEventListener("input", function (e) {
+//     const filteredFoods = hyruleData.food.filter(({ name, description }) =>
+//         name.includes(e.target.value) || description.includes(e.target.value)
+//     );
+//     renderFoodCards(filteredFoods, "food-cards");
+// });
 
-        const img = document.createElement("img");
-        img.className = "card-img";
-        img.alt = `${cardInfo.name} image`;
-        img.src = cardInfo.image;
+// async function fetchData() {
+//     const resp = await fetch("https://botw-compendium.herokuapp.com/api/v2/all");
+//     const { data } = await resp.json();
+//     const { creatures, equipment, materials, monsters } = data;
+//     const { food, non_food } = creatures;
+//     hyruleData = {
+//         equipment,
+//         materials,
+//         monsters,
+//         food,
+//         non_food,
+//     };
+//     renderFoodCards(food, "food-cards");
+// }
 
-        cardWrapper.appendChild(img);
+// function renderFoodCards(data, id) {
+//     console.log(data);
+//     const cardContainer = idEl(id);
+//     cardContainer.textContent = "";
+//     console.log(cardContainer);
+//     data.forEach((el) => {
+//         const card = document.createElement("div");
+//         card.classList = "card";
+//         card.style = "width: 18rem; margin: 20px";
 
-        img.addEventListener("dblclick", (event) => {
-            const pName = document.createElement("p");
-            pName.textContent = cardInfo.name;
-            console.log(pName);
-        });
+//         const img = document.createElement("img");
+//         img.src = el.image;
+//         img.className = "card-img-top";
+//         img.alt = el.name;
 
-        cardsContainer.appendChild(cardWrapper);
-    });
-};
+//         const cardBody1 = document.createElement("div");
+//         cardBody1.className = "card-body";
 
-const fetchData = (category = "") => { // This function returns a fetch. Any call to this function will need to handle the returned <Promise> by using a .then() - fetchData().then(data => console.log(data))
-    return fetch(`https://botw-compendium.herokuapp.com/api/v2${category}`)
-        .then(function (response) {
-            return response.json(); // The callback function that is passed to .then() needs to return a value. This code is equivalent to .then(response => response.json())
-        })
-        .then(function (info) {
-            return info.data;
-        });
-};
+//         const h5 = document.createElement("h5");
+//         h5.className = "card-title";
+//         h5.textContent = el.name;
 
-const addEventListenerToNavLinks = () => {
-    const links = document.querySelectorAll(".link");
-    links.forEach((link) => {
-        link.addEventListener("click", (e) => {
-            const filteredCards = allCards.filter((card) => {  // Filter allCards based on the nav link text that was clicked
-                return card.category.toLowerCase() === e.target.textContent.toLowerCase()
-            });
-            renderCards(filteredCards) // Render the filtered cards array that we created
-        });
-    });
-};
+//         const p1 = document.createElement("p");
+//         p1.className = "card-text";
+//         p1.textContent = el.description;
 
-const init = () => {
-    addEventListenerToNavLinks(); // add event listeners
+//         const ul = document.createElement("ul");
+//         ul.classList.add("list-group", "list-group-flush");
 
-    fetchData().then(function (data) { // Send initial fetch for data
-        Object.keys(data).forEach((key) => {
-            if (typeof data[key] === "Array") {        // If data[key] points to an array, then add that array to allCards 
-                allCards = [...allCards, ...data[key]];
-            } else {                                   // Otherwise, data[key] is an object that has top level keys that point to arrays. Grab all of the object's values (arrays) and combine them (.flat() )
-                allCards = [...allCards, ...Object.values(data[key]).flat()]; // .flat() documentation: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat
-            }
-            renderCards(allCards);
-        });
-    });
-};
+//         const locationTitle = document.createElement("h5");
+//         locationTitle.style = "margin-left: 20px;";
+//         locationTitle.className = "card-title";
+//         locationTitle.textContent = "Common Locations:";
 
-init(); // Initializer function - handles all initial calls to functions that fetch data, populate the DOM and adds event listeners
+//         el.common_locations.forEach((location) => {
+//             const li = document.createElement("li");
+//             li.className = "list-group-item";
+//             li.textContent = location;
+//             ul.append(li);
+//         });
+
+//         const cardBody = document.createElement("div");
+//         cardBody.className = "card-body";
+
+//         const h4 = document.createElement("h4");
+//         h4.className = "card-title";
+//         h4.textContent = "Cooking Effect";
+
+//         const p2 = document.createElement("p");
+//         p2.className = "card-text";
+//         p2.textContent = el.cooking_effect;
+
+//         cardBody1.append(h5, p1);
+//         cardBody.append(h4, p2);
+//         card.append(img, cardBody1, locationTitle, ul, cardBody);
+
+//         cardContainer.appendChild(card);
+//     });
+// }
+
+// function idEl(id) {
+//     return document.getElementById(id);
+// }
