@@ -39,7 +39,7 @@ const fetchDataCat = () => {
         .then(response => response.json())
         .then(info => {
             // console.log(info.data)
-            renderLinksCards(info.data.treasure)
+            renderLinksCards(info.data.equipment)
             return info
         })
 }
