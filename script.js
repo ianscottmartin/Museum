@@ -7,20 +7,26 @@ const renderCards = (dataArray) => {
 
         const img = document.createElement("img");
         const name = document.createElement("p")
-        const price = document.createElement("p")
+        // const description = document.createElement("p")
+        // const equipment = document.createElement('p')
+
 
         name.textContent = cardInfo.name
-        price.textContent = "1.00"
+        // description.textContent = cardInfo.description
+        // equipment.textContent = cardInfo.equipment
 
-        imgContainer.append(img, name, price)
+        imgContainer.append(img, name)
 
         img.src = cardInfo.image;
 
         img.addEventListener("dblclick", (event) => {
-            console.log(cardInfo)
+            // console.log(cardInfo)
+            const description = document.createElement("p")
+            description.textContent = cardInfo.description
             const pName = document.createElement("p")
             pName.textContent = cardInfo.name
-            console.log(pName)
+            // console.log(pName)
+            imgContainer.append(img, description)
         })
 
 
@@ -34,7 +40,7 @@ const fetchData = () => {
     return fetch("https://botw-compendium.herokuapp.com/api/v2")
         .then(response => response.json())
         .then(info => {
-            console.log(info.data)
+            // console.log(info.data)
             renderCards(info.data.monsters)
             return info
         })
