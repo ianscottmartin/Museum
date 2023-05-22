@@ -1,4 +1,4 @@
-console.log("Running scripts");
+// console.log("Running scripts");
 
 const renderCards = (dataArray) => {
     const cardContainer = document.getElementById("card-container");
@@ -7,13 +7,9 @@ const renderCards = (dataArray) => {
 
         const img = document.createElement("img");
         const name = document.createElement("p")
-        // const description = document.createElement("p")
-        // const equipment = document.createElement('p')
 
 
         name.textContent = cardInfo.name
-        // description.textContent = cardInfo.description
-        // equipment.textContent = cardInfo.equipment
 
         imgContainer.append(img, name)
 
@@ -90,11 +86,10 @@ const addEventListenerToNavLinks = () => {
     const links = document.querySelectorAll(".link")
     links.forEach(link => {
         link.addEventListener("click", (e) => {
-            // 1. Fetch data from json
+
             console.log(e)
             console.log(e.target)
-            // debugger
-            // a. Return only images that match the clicked link
+
             fetch("https://botw-compendium.herokuapp.com/api/v2")
                 .then(response => response.json())
                 .then(info => {
