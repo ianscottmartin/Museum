@@ -59,7 +59,7 @@ const renderLinksCards = (dataArray) => {
 
         img.src = cardInfo.image;
 
-        img.addEventListener("dblclick", (event) => {
+        img.addEventListener("click", (event) => {
             // console.log(cardInfo)
             const description = document.createElement("p")
             description.textContent = cardInfo.description
