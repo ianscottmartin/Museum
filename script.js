@@ -19,7 +19,7 @@ const renderCards = (dataArray) => {
 
         img.src = cardInfo.image;
 
-        img.addEventListener("dblclick", (event) => {
+        img.addEventListener("mouseover", (event) => {
             // console.log(cardInfo)
             const description = document.createElement("p")
             description.textContent = cardInfo.description
@@ -39,7 +39,7 @@ const fetchDataCat = () => {
         .then(response => response.json())
         .then(info => {
             // console.log(info.data)
-            renderLinksCards(info.data.equipment)
+            renderLinksCards(info.data.treasure)
             return info
         })
 }

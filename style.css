@@ -21,8 +21,9 @@ header {
   display: grid;
   column-gap: 10px;
   row-gap: 10px;
+  background-color: aqua;
 }
-wrapper {
+.wrapper {
   position: absolute;
   justify-content: center;
   align-items: center;
@@ -31,26 +32,28 @@ wrapper {
   display: grid;
   column-gap: 10px;
   row-gap: 10px;
+  background-color: aqua;
 }
 img {
   width: 300px;
   height: 300px;
   object-fit: cover;
   object-position: center;
+  padding-top: auto;
 }
 
 #card-container {
   display: grid;
   background-color: rgb(119, 119, 236);
-  width: fit-content;
-  height: fit-content;
+  width: min-content;
+  height: min-content;
 }
 
 #card-linkscontainer {
   display: grid;
   background-color: crimson;
-  width: fit-content;
-  height: fit-content;
+  width: min-content;
+  height: min-content;
 }
 
 /* .h1 {
