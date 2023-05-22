@@ -22,7 +22,9 @@ const renderCards = (dataArray) => {
             const pName = document.createElement("p")
             pName.textContent = cardInfo.name
             // console.log(pName)
-            imgContainer.append(img, description)
+            const id = document.createElement('p')
+            id.textContent = cardInfo.id
+            imgContainer.append(img, description, id)
         })
 
 
@@ -61,8 +63,10 @@ const renderLinksCards = (dataArray) => {
             description.textContent = cardInfo.description
             const pName = document.createElement("p")
             pName.textContent = cardInfo.name
+            const id = document.createElement('p')
+            id.textContent = cardInfo.id
             // console.log(pName)
-            imgContainer.append(img, description)
+            imgContainer.append(img, description, id)
         })
 
 
